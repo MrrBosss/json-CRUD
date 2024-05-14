@@ -17,7 +17,6 @@ def load_customers(file_name):
 def save_customers(customers, file_name):
     with open(file_name, 'w') as file:
         json.dump(customers, file)
-    
 
 
 # Add a new customer
