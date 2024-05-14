@@ -34,6 +34,15 @@ def add_customer(customers, file_name):
             put_text("Valid!")
             break
     phone = input("Enter customer phone number: ")
+    while True:
+        pattern = re.match(r"^[+]{1}(?:[0-9\\-\\(\\)\\/" \
+              "\\.]\\s?){6,15}[0-9]{1}$",phone)
+        if pattern is None:
+            phone = input("Re-Enter customer phone number: ")
+            put_text("Invalid!")
+        else:
+            put_text("Valid")
+            break
     address = input("Enter customer address: ")
     customer = {"id": id, "name": name, "email": email, "phone": phone, "address": address}
     customers.append(customer)
@@ -90,4 +99,3 @@ def display_customers(customers):
         put_text(f"Address: {customer['address']}")
         put_text("_______________________________")
     put_text("Customer not found.")
-    
