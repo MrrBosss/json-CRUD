@@ -20,7 +20,6 @@ from pywebio.output import put_text
 def main():
     file_name = "customers.json"
     customers = load_customers(file_name)
-
     while True:
         put_text("1. Add a new customer")
         put_text("2. Update customer information")
@@ -33,7 +32,7 @@ def main():
         if choice == "1":
             add_customer(customers, file_name)
         elif choice == "2":
-            update_customer(customers, file_name)
+            update_customer(customers,file_name)
         elif choice == "3":
             delete_customer(customers, file_name)
         elif choice == "4":
