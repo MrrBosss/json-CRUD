@@ -90,7 +90,7 @@ def search_customer(customers):
 # Display all customers
 def display_customers(customers):
     for customer in customers:
-        put_text("_________Here's all customer information!_________")
+        put_text("_________Here's customer information!_________")
         put_text("Customers:")
         put_text(f"Customer id number: {customer['id']}")
         put_text(f"Name: {customer['name']}")
