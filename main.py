@@ -14,8 +14,8 @@
 # Display All Customers: Display the information of all customers in the database
 
 from functions import *
-from pywebio.input import input
-from pywebio.output import put_text
+from pywebio.input import *
+from pywebio.output import *
 
 def main():
     file_name = "customers.json"
