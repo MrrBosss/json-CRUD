@@ -37,7 +37,8 @@ def check_email(email):
     else:
         put_text("Valid")
         
-   
+
+
 
 # Add a new customer
 def add_customer(customers, file_name):
@@ -61,9 +62,10 @@ def add_customer(customers, file_name):
     #         put_text("Valid")
     #         break
     address = input("Enter customer address: ")
-    customer = {"name": name, "email": email, "phone": phone, "address": address}
+    customer = {"name": name, "email": email, "phone": phone, "address": address,}
     customers.append(customer)
-    save_customers(customers, file_name)
+    popup('Well Done', size=PopupSize.NORMAL)
+    save_customers(customers, file_name, )
     
 
 # Update customer information
@@ -95,7 +97,7 @@ def search_customer(customers):
     email = input("Enter customer email: ")
     for customer in customers:
         if customer["email"] == email:
-            put_text(f"Customer found! Customer id {id(customer)}")
+            put_text(f"Customer found! ")
             put_text(f"Name: {customer['name']}")
             put_text(f"Email: {customer['email']}")
             put_text(f"Phone: {customer['phone']}")
@@ -108,7 +110,6 @@ def display_customers(customers):
     for customer in customers:
         put_text("_________Here's customer information!_________")
         put_text("Customers:")
-        put_text(f"Customer id number: {id(customer)}")
         put_text(f"Name: {customer['name']}")
         put_text(f"Email: {customer['email']}")
         put_text(f"Phone: {customer['phone']}")
