@@ -24,9 +24,10 @@ def check_phonenumber(num):
     pattern = re.match(r"^[+]{1}(?:[0-9\\-\\(\\)\\/" \
               "\\.]\\s?){6,15}[0-9]{1}$",num)
     if pattern is None:
-        return ("Invalid!")
+        return 'Invalid!'
     else:
-        put_text("Valid")
+        return None
+
 
 # check validation of email  
 def check_email(email):
@@ -49,7 +50,7 @@ def add_customer(customers, file_name):
     #     else:
     #         put_text("Valid!")
     #         break
-    phone = input("Enter customer phone number: ",type=NUMBER,validate=check_phonenumber)
+    phone = input("Enter customer phone number: ",type=TEXT, validate=check_phonenumber)
     # while True:
     #     pattern = re.match(r"^[+]{1}(?:[0-9\\-\\(\\)\\/" \
     #           "\\.]\\s?){6,15}[0-9]{1}$",phone)
@@ -71,7 +72,7 @@ def update_customer(customers, file_name):
     for customer in customers:
         if customer["email"] == email:
             customer["name"] = input("Enter new customer name: ")
-            customer["phone"] = input("Enter new customer phone number: ")
+            customer["phone"] = input("Enter new customer phone number: ",type=TEXT,validate=check_phonenumber)
             customer["address"] = input("Enter new customer address: ")
             save_customers(customers, file_name)
             put_text("Customer information updated.")
@@ -94,7 +95,7 @@ def search_customer(customers):
     email = input("Enter customer email: ")
     for customer in customers:
         if customer["email"] == email:
-            put_text(f"Customer found! Customer id {customer['id']}")
+            put_text(f"Customer found! Customer id {id(customer)}")
             put_text(f"Name: {customer['name']}")
             put_text(f"Email: {customer['email']}")
             put_text(f"Phone: {customer['phone']}")
@@ -107,7 +108,7 @@ def display_customers(customers):
     for customer in customers:
         put_text("_________Here's customer information!_________")
         put_text("Customers:")
-        put_text(f"Customer id number: {customer['id']}")
+        put_text(f"Customer id number: {id(customer)}")
         put_text(f"Name: {customer['name']}")
         put_text(f"Email: {customer['email']}")
         put_text(f"Phone: {customer['phone']}")
