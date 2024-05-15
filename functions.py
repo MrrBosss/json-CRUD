@@ -19,45 +19,30 @@ def save_customers(customers, file_name):
         json.dump(customers, file)
     
 
-# check validation
-def check_phonenumber(num):
-    pattern = re.match(r'^([0|\+[0-9]{1,5})?([7-9][0-9]{9})$',num)
-    if pattern is None:
-        return ("Invalid!")
-    else:
-        put_text ("Valid") 
-
-# check validation of email  
-def check_email(email):
-    x = re.match(r"^\S+@\S+\.\S+$", email)
-    if x is None:
-        return "Invalid"
-    else:
-        put_text ("Valid")
-        
-
 
 # Add a new customer
 def add_customer(customers, file_name):
-    name = input("Enter customer name: ",type=TEXT)
-    email = input("Enter customer email: ",type=TEXT, validate=check_email)
-    #     x = re.match(r"^\S+@\S+\.\S+$", email)
-    #     if x is None:
-    #         email = input("Re-Enter customer email: ")
-    #         put_text("Invalid!")
-    #     else:
-    #         put_text("Valid!")
-    #         break
-    phone = input("Enter customer phone number: ",type=NUMBER,validate=check_phonenumber)
-    # while True:
-    #     pattern = re.match(r"^[+]{1}(?:[0-9\\-\\(\\)\\/" \
-    #           "\\.]\\s?){6,15}[0-9]{1}$",phone)
-    #     if pattern is None:
-    #         phone = input("Re-Enter customer phone number: ")
-    #         put_text("Invalid!")
-    #     else:
-    #         put_text("Valid")
-    #         break
+    id = input("Enter customer id number: ")
+    name = input("Enter customer name: ")
+    email = input("Enter customer email: ")
+    while True:
+        x = re.match(r"^\S+@\S+\.\S+$", email)
+        if x is None:
+            email = input("Re-Enter customer email: ")
+            put_text("Invalid!")
+        else:
+            put_text("Valid!")
+            break
+    phone = input("Enter customer phone number: ")
+    while True:
+        pattern = re.match(r"^[+]{1}(?:[0-9\\-\\(\\)\\/" \
+              "\\.]\\s?){6,15}[0-9]{1}$",phone)
+        if pattern is None:
+            phone = input("Re-Enter customer phone number: ")
+            put_text("Invalid!")
+        else:
+            put_text("Valid")
+            break
     address = input("Enter customer address: ")
     customer = {"name": name, "email": email, "phone": phone, "address": address}
     customers.append(customer)
