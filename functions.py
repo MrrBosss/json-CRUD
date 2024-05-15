@@ -62,7 +62,7 @@ def add_customer(customers, file_name):
     #         put_text("Valid")
     #         break
     address = input("Enter customer address: ")
-    customer = {"name": name, "email": email, "phone": phone, "address": address,}
+    customer = {"name": name, "email": email, "phone": phone, "address": address}
     customers.append(customer)
     popup('Well Done', size=PopupSize.NORMAL)
     save_customers(customers, file_name, )
