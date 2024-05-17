@@ -36,9 +36,10 @@ def check_email(email):
         return "Invalid"
     else:
         put_text("Valid")
-        
+    
 
-
+def show_msg():
+    put_text('Well Done!')
 
 # Add a new customer
 def add_customer(customers, file_name):
@@ -64,7 +65,7 @@ def add_customer(customers, file_name):
     address = input("Enter customer address: ")
     customer = {"name": name, "email": email, "phone": phone, "address": address}
     customers.append(customer)
-    popup('Well Done', size=PopupSize.NORMAL)
+    toast(content='Well Done', duration=1, color='#1565c0', onclick=show_msg,)
     save_customers(customers, file_name, )
     
 
